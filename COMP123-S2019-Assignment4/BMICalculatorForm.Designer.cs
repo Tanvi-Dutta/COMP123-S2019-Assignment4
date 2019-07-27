@@ -41,6 +41,7 @@
             this.CalculateButton = new System.Windows.Forms.Button();
             this.BMIDisplayTextBox = new System.Windows.Forms.TextBox();
             this.BMIDisplayLabel = new System.Windows.Forms.Label();
+            this.ResetButton = new System.Windows.Forms.Button();
             this.InputTabelLayoutPanel.SuspendLayout();
             this.UnitGroupBox.SuspendLayout();
             this.SuspendLayout();
@@ -72,6 +73,7 @@
             this.WeightTextBox.Name = "WeightTextBox";
             this.WeightTextBox.Size = new System.Drawing.Size(134, 38);
             this.WeightTextBox.TabIndex = 4;
+            this.WeightTextBox.TextChanged += new System.EventHandler(this.WeightTextBox_TextChanged);
             // 
             // WeightLabel
             // 
@@ -156,6 +158,7 @@
             this.HeightTextBox.Name = "HeightTextBox";
             this.HeightTextBox.Size = new System.Drawing.Size(134, 38);
             this.HeightTextBox.TabIndex = 3;
+            this.HeightTextBox.TextChanged += new System.EventHandler(this.HeightTextBox_TextChanged);
             // 
             // CalculatorLabel
             // 
@@ -175,13 +178,16 @@
             this.CalculateButton.TabIndex = 5;
             this.CalculateButton.Text = "Calculate your BMI";
             this.CalculateButton.UseVisualStyleBackColor = true;
+            this.CalculateButton.Click += new System.EventHandler(this.CalculateButton_Click);
             // 
             // BMIDisplayTextBox
             // 
+            this.BMIDisplayTextBox.Enabled = false;
             this.BMIDisplayTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.25F);
             this.BMIDisplayTextBox.Location = new System.Drawing.Point(121, 316);
+            this.BMIDisplayTextBox.Multiline = true;
             this.BMIDisplayTextBox.Name = "BMIDisplayTextBox";
-            this.BMIDisplayTextBox.Size = new System.Drawing.Size(168, 31);
+            this.BMIDisplayTextBox.Size = new System.Drawing.Size(168, 60);
             this.BMIDisplayTextBox.TabIndex = 4;
             // 
             // BMIDisplayLabel
@@ -191,18 +197,29 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.BMIDisplayLabel.AutoSize = true;
             this.BMIDisplayLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.BMIDisplayLabel.Location = new System.Drawing.Point(16, 325);
+            this.BMIDisplayLabel.Location = new System.Drawing.Point(12, 336);
             this.BMIDisplayLabel.Name = "BMIDisplayLabel";
             this.BMIDisplayLabel.Size = new System.Drawing.Size(99, 25);
             this.BMIDisplayLabel.TabIndex = 5;
             this.BMIDisplayLabel.Text = "Your BMI:";
             this.BMIDisplayLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // ResetButton
+            // 
+            this.ResetButton.Location = new System.Drawing.Point(12, 382);
+            this.ResetButton.Name = "ResetButton";
+            this.ResetButton.Size = new System.Drawing.Size(98, 47);
+            this.ResetButton.TabIndex = 6;
+            this.ResetButton.Text = "Reset";
+            this.ResetButton.UseVisualStyleBackColor = true;
+            this.ResetButton.Click += new System.EventHandler(this.ResetButton_Click);
+            // 
             // BMICalculatorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(304, 441);
+            this.Controls.Add(this.ResetButton);
             this.Controls.Add(this.BMIDisplayLabel);
             this.Controls.Add(this.BMIDisplayTextBox);
             this.Controls.Add(this.CalculateButton);
@@ -215,6 +232,8 @@
             this.Name = "BMICalculatorForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "BMICalculatorForm";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.BMICalculatorForm_FormClosing);
+            this.Load += new System.EventHandler(this.BMICalculatorForm_Load);
             this.InputTabelLayoutPanel.ResumeLayout(false);
             this.InputTabelLayoutPanel.PerformLayout();
             this.UnitGroupBox.ResumeLayout(false);
@@ -239,6 +258,7 @@
         private System.Windows.Forms.Button CalculateButton;
         private System.Windows.Forms.TextBox BMIDisplayTextBox;
         private System.Windows.Forms.Label BMIDisplayLabel;
+        private System.Windows.Forms.Button ResetButton;
     }
 }
 
